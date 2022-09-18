@@ -1,0 +1,26 @@
+{
+  "kind": "collectionType",
+  "collectionName": "book_publishers",
+  "info": {
+    "singularName": "book-publisher",
+    "pluralName": "book-publishers",
+    "displayName": "Book Publisher",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "description": {
+      "type": "string",
+      "required": true
+    },
+    "books": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::book.book",
+      "mappedBy": "book_publisher"
+    }
+  }
+}

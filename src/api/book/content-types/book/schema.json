@@ -1,0 +1,69 @@
+{
+  "kind": "collectionType",
+  "collectionName": "books",
+  "info": {
+    "singularName": "book",
+    "pluralName": "books",
+    "displayName": "Books",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "title": {
+      "type": "string",
+      "required": true
+    },
+    "description": {
+      "type": "text"
+    },
+    "author": {
+      "type": "string",
+      "required": true
+    },
+    "book_publisher": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::book-publisher.book-publisher",
+      "inversedBy": "books"
+    },
+    "isbn": {
+      "type": "string",
+      "required": true
+    },
+    "book_category": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::book-category.book-category",
+      "inversedBy": "books"
+    },
+    "book_cover_image": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": [
+        "images"
+      ]
+    },
+    "year": {
+      "type": "string",
+      "required": true,
+      "maxLength": 4,
+      "minLength": 4
+    },
+    "quantity": {
+      "type": "integer",
+      "required": true,
+      "min": 1,
+      "max": 100
+    },
+    "grade": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::grade.grade",
+      "inversedBy": "books"
+    }
+  }
+}
